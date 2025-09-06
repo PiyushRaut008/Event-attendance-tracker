@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+        header div {
+            font-size: 18px;
+            color: #333;
+        }
+        header div.center {
+            text-align: center;
+            flex: 1;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .form-container .form-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        form label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input[type="text"],
+        form input[type="tel"],
+        form input[type="email"],
+        form input[type="date"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>Coordinator: {{ coordinator }}</div>
+            <div class="center">Event Name: {{ event_name }}</div>
+            <div>Date: {{ date }}</div>
+        </header>
+        <h1>Student Entry</h1>
+        <form action="/submit_student" method="post">
+            <input type="hidden" name="event_name" value="{{ event_name }}">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="student_name">Student Name:</label>
+                    <input type="text" id="student_name" name="student_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="roll_no">Roll No.:</label>
+                    <input type="text" id="roll_no" name="roll_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="branch">Branch:</label>
+                    <input type="text" id="branch" name="branch" required>
+                </div>
+                <div class="form-group">
+                    <label for="college">College:</label>
+                    <input type="text" id="college" name="college" required>
+                </div>
+                <div class="form-group">
+                    <label for="semester">Semester:</label>
+                    <input type="text" id="semester" name="semester" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone_no">Phone No.:</label>
+                    <input type="tel" id="phone_no" name="phone_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+            </div>
+            <div class="button-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="button-group">
+            <form action="/view_data" method="get">
+                <input type="hidden" name="event_name" value="{{ event_name }}">
+                <button type="submit">View Data</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

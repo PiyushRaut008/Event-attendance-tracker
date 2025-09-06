@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 800px;
+            width: 100%;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            width: 150px;
+            margin-right: 20px;
+            color: #555;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button-group button {
+            flex: 1;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        .button-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Event</h1>
+        <form action="/create_event" method="POST">
+            <div class="form-group">
+                <label for="event_name">Event Name:</label>
+                <input type="text" id="event_name" name="event_name" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="coordinator">Coordinator:</label>
+                <input type="text" id="coordinator" name="coordinator" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_no">Phone No.:</label>
+                <input type="tel" id="phone_no" name="phone_no" required>
+            </div>
+            <div class="form-group">
+                <label for="email_id">Email ID:</label>
+                <input type="email" id="email_id" name="email_id" required>
+            </div>
+            <div class="button-group">
+                <button type="submit">Create Event</button>
+                <button type="button" onclick="location.href='/event_list'">Event Detail</button>
+                <button type="button" onclick="location.href='/class_data'">Class Students</button>
+                <button type="button" onclick="location.href='/check_students'">Verification</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
